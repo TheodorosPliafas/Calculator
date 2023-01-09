@@ -115,6 +115,10 @@ function checkDot() {
     }
 }
 
+function percent() {
+
+}
+
 // Event listeners
 
 numButton.forEach(num => {
@@ -134,9 +138,10 @@ delButton.addEventListener('click', () => {
 
 opButton.forEach(op => {
     op.addEventListener('click', () => {
-        storeOperator(op.value);
-        displayValue(op.textContent);
-        storeNum1(currentNum);
+            storeOperator(op.value);
+            displayValue(op.textContent);
+            storeNum1(currentNum);
+            return;
     })
 });
 
@@ -145,6 +150,10 @@ dotButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
+    if (operator === "divide" && b === 0) {
+        resultDisplay.textContent = "Cannot divide with zero";
+        return;
+    }
     if (equalsButtonPressed === false) {
         storeNum2(currentNum);
         operate(operator, a, b);
