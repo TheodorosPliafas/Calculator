@@ -9,33 +9,44 @@ body {
     margin-top: 20px;
     width: 400px;
     height: 600px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: black;
 }
 
 .screen-container {
     display: flex;
-    background-color: black;
+    justify-content: right;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+    padding-right: 25px;
 }
 
 .function-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid black;
+    
 }
 
 .clear-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid black;
+    
+}
+
+.clear-button:active {
+    background-color: brown;
 }
 
 .delete-button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.delete-button:active {
+    background-color: brown;
 }
 
 .buttons {
@@ -46,19 +57,19 @@ body {
 .row-1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-bottom: 1px solid black;
+    
 }
 
 .row-2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-bottom: 1px solid black;
+    
 }
 
 .row-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-bottom: 1px solid black;
+    
 }
 
 .row-4 {
@@ -70,11 +81,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid black;
+    
 }
 
-.last-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn:active {
+    background-color: brown;
 }
+
