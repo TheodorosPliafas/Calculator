@@ -1,3 +1,9 @@
+html * {
+    font-size: 15;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,67 +15,82 @@ body {
     margin-top: 20px;
     width: 400px;
     height: 600px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
 }
 
 .screen-container {
     display: flex;
     justify-content: right;
     align-items: flex-end;
-    border-bottom: 1px solid black;
     padding-right: 25px;
+    background-color: rgb(236, 236, 236);
+    border-top: 3px;
+    border-top-style: solid;
+    border-top-color: black;
+    border-right: 3px;
+    border-right-style: solid;
+    border-right-color: black;
+    border-left: 3px;
+    border-left-style: solid;
+    border-left-color: black;
+    font-size: 50px;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
 }
 
 .function-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    
+    grid-template-columns: 1fr 1fr;
 }
 
 .clear-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    border-radius: 5%;
+    background-color: #7D9D9C;
+    opacity: 0.9;
+    transition: 0.25s;
+
 }
 
-.clear-button:active {
-    background-color: brown;
+.clear-button:hover,
+.delete-button:hover,
+.btn:hover,
+.btn.op.btn:hover,
+#equals:hover,
+#dot-btn:hover {
+    opacity: 1;
 }
 
 .delete-button {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.delete-button:active {
-    background-color: brown;
+    border-radius: 5%;
+    background-color: #7D9D9C;
+    opacity: 0.9;
+    transition: 0.25s;
 }
 
 .buttons {
     height: 450px;
     display: grid;
+    background-color: black;
 }
 
 .row-1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    
 }
 
 .row-2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    
 }
 
 .row-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    
 }
 
 .row-4 {
@@ -81,10 +102,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    border-radius: 8%;
+    background-color: #F0EBE3;
+    opacity: 0.9;
+    transition: 0.25s;
 }
 
-.btn:active {
-    background-color: brown;
+.btn.op{
+    background-color: #E4DCCF;
+    opacity: 0.9;
+    transition: 0.25s;
+}
+
+#equals, #dot-btn {
+    background-color: #E4DCCF;
+    opacity: 0.9;
+    transition: 0.25s;
 }
 

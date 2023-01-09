@@ -150,6 +150,7 @@ dotButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
+    checkDot();
     if (operator === "divide" && b === 0) {
         resultDisplay.textContent = "Cannot divide with zero";
         return;
