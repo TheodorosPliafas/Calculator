@@ -52,18 +52,18 @@ function storeOperator(op) {
 function operate(op, a, b) {
     let result = 0;
     switch(op) {
-        case 'add': 
+        case '+': 
             result = addNum(a, b);
             break;
-        case 'subtract':
+        case '-':
             result = subtractNum(a, b);
             break;
-        case 'multiply': 
+        case '*': 
             result = multiplyNum(a, b);
             break;
-        case 'divide':
-                result = divideNum(a, b);
-                break;  
+        case '/':
+            result = divideNum(a, b);
+            break;  
     }
     let displayResult = Math.round(result * 100000000) / 100000000;
     currentNum = displayResult;
@@ -79,6 +79,7 @@ function displayValue(value) {
 }
 
 function addDigit(newNum) {
+    if (currentNum.length >10 ) return;
     if (currentNum === defaultValue) {
          currentNum = newNum;
     } else {
@@ -115,15 +116,11 @@ function checkDot() {
     }
 }
 
-function percent() {
-
-}
-
 // Event listeners
 
 numButton.forEach(num => {
     num.addEventListener('click', () => {
-        let numValue = num.value;
+        let numValue = num.textContent;
         addDigit(numValue);
     })
 });
@@ -138,7 +135,7 @@ delButton.addEventListener('click', () => {
 
 opButton.forEach(op => {
     op.addEventListener('click', () => {
-            storeOperator(op.value);
+            storeOperator(op.textContent);
             displayValue(op.textContent);
             storeNum1(currentNum);
             return;
@@ -151,12 +148,30 @@ dotButton.addEventListener('click', () => {
 
 equalsButton.addEventListener('click', () => {
     checkDot();
-    if (operator === "divide" && b === 0) {
-        resultDisplay.textContent = "Cannot divide with zero";
-        return;
-    }
     if (equalsButtonPressed === false) {
         storeNum2(currentNum);
         operate(operator, a, b);
     }
+});
+
+document.addEventListener('keydown', (event) => {
+    if(event.key >= 0 && event.key <=9) {
+        addDigit(event.key);
+    } else if (event.key === "Delete" || event.key === "Backspace") {
+        deleteDigit();
+    } else if (event.key === "." && dotButton.disabled === false) {
+        addDigit('.');
+    } else if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/") {
+        storeOperator(event.key);
+        displayValue(operator);
+        storeNum1(currentNum);
+    } else if (event.key === "=") {
+        if (equalsButtonPressed === false) {
+            storeNum2(currentNum);
+            operate(operator, a, b);
+        }
+        checkDot();
+    } else if (event.key === "c") {
+        clearAll();
+    } else return;
 });
